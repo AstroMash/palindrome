@@ -2,7 +2,7 @@
 
 require_relative "mshultz_palindrome/version"
 
-class String
+module MshultzPalindrome
 
     def palindrome?
         processed_content == processed_content.reverse
@@ -11,6 +11,14 @@ class String
     private
 
     def processed_content
-        scan(/[a-z]/i).join.downcase
+        to_s.scan(/[a-z0-9]/i).join.downcase
     end
+end
+
+class String
+    include MshultzPalindrome
+end
+
+class Integer
+    include MshultzPalindrome
 end

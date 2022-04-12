@@ -5,7 +5,11 @@ require_relative "mshultz_palindrome/version"
 module MshultzPalindrome
 
     def palindrome?
-        processed_content == processed_content.reverse
+        if processed_content.empty?
+            false
+        else
+            processed_content == processed_content.reverse
+        end
     end
 
     private
